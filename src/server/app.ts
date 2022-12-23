@@ -2,6 +2,10 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import generalError, { unknownEndpoint } from "./middlewares/errors.js";
+import paths from "./routes/paths.js";
+import pingPongProtocolRouter from "./routes/pingPongProtocolRouter/pingPongProtocolRouter.js";
+
+const { baseUrl } = paths;
 
 const app = express();
 
@@ -12,11 +16,7 @@ app.use(morgan("dev"));
 
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-  res.json({
-    message: "Pong 🏓",
-  });
-});
+app.use(baseUrl, pingPongProtocolRouter);
 
 app.use(unknownEndpoint);
 app.use(generalError);
