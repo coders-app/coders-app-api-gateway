@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import generalError, { unknownEndpoint } from "./middlewares/errors.js";
 
 const app = express();
 
@@ -16,5 +17,8 @@ app.get("/", async (req, res) => {
     message: "Pong 🏓",
   });
 });
+
+app.use(unknownEndpoint);
+app.use(generalError);
 
 export default app;
