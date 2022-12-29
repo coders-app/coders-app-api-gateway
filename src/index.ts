@@ -3,7 +3,7 @@ import debugCreator from "debug";
 import chalk from "chalk";
 import startServer from "./server/startServer.js";
 
-const debug = debugCreator("identity-server:root");
+const debug = debugCreator("api-gateway:root");
 
 try {
   await startServer(+port);
