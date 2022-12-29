@@ -2,4 +2,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export const { PORT: port } = process.env;
+const { PORT: port } = process.env;
+
+export const environment = {
+  port,
+};
