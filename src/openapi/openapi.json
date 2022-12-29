@@ -1,0 +1,28 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Gateway",
+    "version": "1.0.0"
+  },
+  "components": {},
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["Ping"],
+        "summary": "Pings the server",
+        "responses": {
+          "200": {
+            "description": "Successful ping",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Pong 🏓"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
