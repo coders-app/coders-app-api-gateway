@@ -6,12 +6,13 @@ import generalError, { unknownEndpoint } from "./middlewares/errors.js";
 import paths from "./routes/paths.js";
 import pingPongProtocolRouter from "./routes/pingPongProtocolRouter/pingPongProtocolRouter.js";
 import openApiDocument from "../openapi/index.js";
+import corsOptions from "./cors/corsOptions.js";
 
 const { baseUrl, apiDocs } = paths;
 
 const app = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.disable("x-powered-by");
 
 app.use(morgan("dev"));

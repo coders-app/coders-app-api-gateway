@@ -2,6 +2,7 @@ import { environment } from "./loadEnvironments.js";
 import debugCreator from "debug";
 import chalk from "chalk";
 import startServer from "./server/startServer.js";
+import type CustomError from "./CustomError/CustomError.js";
 
 const debug = debugCreator("api-gateway:root");
 
@@ -9,7 +10,14 @@ const { port } = environment;
 
 try {
   await startServer(+port);
+
   debug(chalk.blue(`Server listening on port ${port}`));
 } catch (error: unknown) {
-  debug(chalk.red(`Error with the server ${(error as Error).message}`));
+  if ((error as CustomError).code === "EADDRINUSE") {
+    debug(chalk.red(`Error with the server: port ${port} in use`));
+    process.exit(1);
+  }
+
+  debug(chalk.red(`Error with the server: ${(error as Error).message}`));
+  process.exit(1);
 }
