@@ -3,8 +3,8 @@ import morgan from "morgan";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import generalError, { unknownEndpoint } from "./middlewares/errors.js";
-import paths from "./routes/paths.js";
-import pingPongProtocolRouter from "./routes/pingPongProtocolRouter/pingPongProtocolRouter.js";
+import paths from "./routers/paths.js";
+import pingPongProtocolRouter from "./routers/pingPongProtocolRouter/pingPongProtocolRouter.js";
 import openApiDocument from "../openapi/index.js";
 import corsOptions from "./cors/corsOptions.js";
 
