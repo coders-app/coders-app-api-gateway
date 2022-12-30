@@ -1,12 +1,14 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import basicAuth from "express-basic-auth";
 import swaggerUi from "swagger-ui-express";
 import generalError, { unknownEndpoint } from "./middlewares/errors.js";
-import paths from "./routes/paths.js";
-import pingPongProtocolRouter from "./routes/pingPongProtocolRouter/pingPongProtocolRouter.js";
+import paths from "./routers/paths.js";
+import pingPongProtocolRouter from "./routers/pingPongProtocolRouter/pingPongProtocolRouter.js";
 import openApiDocument from "../openapi/index.js";
 import corsOptions from "./cors/corsOptions.js";
+import { environment } from "../loadEnvironments.js";
 
 const { baseUrl, apiDocs } = paths;
 
@@ -21,7 +23,17 @@ app.use(express.json());
 
 app.use(baseUrl, pingPongProtocolRouter);
 
-app.use(apiDocs, swaggerUi.serve, swaggerUi.setup(openApiDocument));
+app.use(
+  apiDocs,
+  basicAuth({
+    users: {
+      [environment.basicAuth.username]: environment.basicAuth.password,
+    },
+    challenge: true,
+  }),
+  swaggerUi.serve,
+  swaggerUi.setup(openApiDocument)
+);
 
 app.use(unknownEndpoint);
 app.use(generalError);
