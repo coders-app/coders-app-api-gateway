@@ -1,23 +1,12 @@
 import BaseRepository from "./BaseRepository";
 
-describe("Given an instance of BaseRepository", () => {
-  describe("When its method createConfig is invoked with the header 'Authorization: 'Bearer 123''", () => {
-    test("Then it should return an object with the received information adding the header 'X-API-KEY'", async () => {
+describe("Given the class BaseRepository", () => {
+  describe("When it's instantiated", () => {
+    test("Then it should have a property 'X-API-KEY' in the default headers", async () => {
       const repository = new BaseRepository();
-      const firstExpectedHeader = "Authorization";
-      const firstExpectedValue = "Bearer 123";
-      const secondExpectedHeader = "X-API-KEY";
+      const expectedHeader = "X-API-KEY";
 
-      const result = repository.createConfig({
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        headers: { Authorization: firstExpectedValue },
-      });
-
-      expect(result.headers).toHaveProperty(
-        firstExpectedHeader,
-        firstExpectedValue
-      );
-      expect(result.headers).toHaveProperty(secondExpectedHeader);
+      expect(repository.defaults.headers).toHaveProperty(expectedHeader);
     });
   });
 });
