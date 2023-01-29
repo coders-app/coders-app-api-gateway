@@ -19,3 +19,5 @@ jobs:
         env:
           DEBUG: ${{ secrets.DEBUG }}
           ORIGIN_WHITELIST: ${{ secrets.ORIGIN_WHITELIST }}
+          IDENTITY_SERVER_URL: ${{ secrets.IDENTITY_SERVER_URL }}
+          API_KEY: ${{ secrets.API_KEY }}
