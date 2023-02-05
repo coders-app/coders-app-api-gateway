@@ -7,7 +7,7 @@ const {
   ORIGIN_WHITELIST: originWhitelist,
   BASIC_AUTH_USERNAME: basicAuthUsername,
   BASIC_AUTH_PASSWORD: basicAuthPassword,
-  IDENTITY_SERVER_URL: identityServerUrl,
+  SERVICES: services,
   API_KEY: apiKey,
 } = process.env;
 
@@ -18,6 +18,6 @@ export const environment = {
     username: basicAuthUsername,
     password: basicAuthPassword,
   },
-  identityServerUrl,
+  services: JSON.parse(services) as Record<string, string>,
   apiKey,
 };
