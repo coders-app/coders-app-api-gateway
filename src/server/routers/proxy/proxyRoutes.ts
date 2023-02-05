@@ -1,5 +1,5 @@
-import type { ProxyRoutes } from "./types";
-import { environment } from "../../../loadEnvironments";
+import type { ProxyRoutes } from "./types.js";
+import { environment } from "../../../loadEnvironments.js";
 
 /* Dejo esta ruta aquí como ejemplo para cuando creéis las rutas */
 const proxyRoutes: ProxyRoutes = [
