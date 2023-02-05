@@ -9,6 +9,7 @@ import pingPongProtocolRouter from "./routers/pingPongProtocolRouter/pingPongPro
 import openApiDocument from "../openapi/index.js";
 import corsOptions from "./cors/corsOptions.js";
 import { environment } from "../loadEnvironments.js";
+import { registerProxyRoutes } from "./middlewares/proxy.js";
 
 const { baseUrl, apiDocs } = paths;
 
@@ -22,6 +23,8 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use(baseUrl, pingPongProtocolRouter);
+
+registerProxyRoutes(app);
 
 app.use(
   apiDocs,

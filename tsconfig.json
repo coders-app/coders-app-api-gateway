@@ -10,5 +10,5 @@
     "noImplicitAny": true /* Enable error reporting for expressions and declarations with an implied `any` type.. */,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts", "src/**/*.json", "jest.setup.ts"]
+  "include": ["src/**/*.ts", "src/**/*.json"]
 }
