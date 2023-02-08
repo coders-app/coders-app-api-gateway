@@ -1,13 +1,15 @@
 import type { ProxyRoutes } from "./types.js";
 import { environment } from "../../../loadEnvironments.js";
+import paths from "../paths.js";
 
-/* Dejo esta ruta aquí como ejemplo para cuando creéis las rutas */
+const { services } = environment;
+const { login, users } = paths;
 const proxyRoutes: ProxyRoutes = [
   {
-    path: "/dame/llentelmen/tots",
-    method: "get",
-    target: environment.services.identityServer,
-    targetPath: "/gentlemen/",
+    path: `${users}${login}`,
+    method: "post",
+    target: services.identityServer,
+    targetPath: `${users}${login}`,
   },
 ];
 
