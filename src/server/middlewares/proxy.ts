@@ -14,6 +14,18 @@ export const registerProxyRoutes = (app: express.Application) => {
         pathRewrite: { [route.path]: route.targetPath },
         changeOrigin: true,
         headers: { "X-API-KEY": apiKey },
+        logLevel: "debug",
+        onProxyReq(proxyReq, req) {
+          // https://github.com/chimurai/http-proxy-middleware/issues/202#issuecomment-440562619
+          if (req.body) {
+            const bodyData = JSON.stringify(req.body);
+
+            proxyReq.setHeader("Content-Type", "application/json");
+            proxyReq.setHeader("Content-Length", Buffer.byteLength(bodyData));
+
+            proxyReq.write(bodyData);
+          }
+        },
       })
     );
   });
