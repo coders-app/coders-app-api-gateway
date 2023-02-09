@@ -10,7 +10,7 @@ const {
   clientErrors: { notFoundCode },
 } = httpStatusCodes;
 
-const debug = debugCreator("identify-server:middlewares:errors");
+const debug = debugCreator("api-gateway:middlewares:errors");
 
 const generalError = (
   error: CustomError,
