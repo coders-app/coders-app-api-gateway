@@ -1,8 +1,16 @@
-const paths = {
-  baseUrl: "/",
-  apiDocs: "/api-docs",
-  users: "/users",
-  login: "/login",
+export const partialPaths = {
+  users: {
+    base: "/users",
+    login: "/login",
+  },
 };
 
-export default paths;
+export const paths = {
+  root: "/",
+  users: {
+    login: `${partialPaths.users.base}${partialPaths.users.login}`,
+  },
+  apiDocs: {
+    base: "/api-docs",
+  },
+};
