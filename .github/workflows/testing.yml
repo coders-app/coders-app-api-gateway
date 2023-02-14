@@ -21,3 +21,4 @@ jobs:
           ORIGIN_WHITELIST: ${{ secrets.ORIGIN_WHITELIST }}
           SERVICES: ${{ secrets.SERVICES }}
           API_KEY: ${{ secrets.API_KEY }}
+          APP_NAME: ${{ secrets.APP_NAME }}
