@@ -9,6 +9,7 @@ const {
   SWAGGER_BASIC_AUTH_PASSWORD: swaggerBasicAuthPassword,
   SERVICES: services,
   API_KEY: apiKey,
+  APP_NAME: appName,
 } = process.env;
 
 export const environment = {
@@ -20,4 +21,5 @@ export const environment = {
   },
   services: JSON.parse(services) as Record<string, string>,
   apiKey,
+  appName,
 };
