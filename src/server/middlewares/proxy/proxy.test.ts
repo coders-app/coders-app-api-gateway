@@ -8,7 +8,7 @@ const createProxyMiddlewareSpy = jest.spyOn(
   "createProxyMiddleware"
 );
 
-describe("Given a registerProxyRouts function", () => {
+describe("Given a registerProxyRoutes function", () => {
   describe("When it receives app and two proxy routes with method 'post' and paths '/login' and '/register'", () => {
     test("Then createProxyMiddleware should be invoked once for each route", () => {
       const proxyRoutes: ProxyRoutes = [

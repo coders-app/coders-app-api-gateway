@@ -1,7 +1,7 @@
 import request from "supertest";
 
 import app from "../../app";
-import httpStatusCodes from "../../../utils/httpStatusCodes";
+import httpStatusCodes from "../../../constants/httpStatusCodes";
 import { paths } from "../paths";
 
 const {
