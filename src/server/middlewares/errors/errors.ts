@@ -3,7 +3,7 @@ import debugCreator from "debug";
 import chalk from "chalk";
 import type { NextFunction, Request, Response } from "express";
 import CustomError from "../../../CustomError/CustomError.js";
-import httpStatusCodes from "../../../utils/httpStatusCodes.js";
+import httpStatusCodes from "../../../constants/httpStatusCodes.js";
 
 const {
   serverErrors: { internalServerErrorCode },

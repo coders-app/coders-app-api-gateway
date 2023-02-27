@@ -1,6 +1,7 @@
 import request from "supertest";
 import app from "./app";
-import httpStatusCodes from "../utils/httpStatusCodes";
+import httpStatusCodes from "../constants/httpStatusCodes";
+import { paths } from "./routers/paths";
 
 const {
   clientErrors: { badRequestCode },
@@ -13,7 +14,7 @@ describe("Given a GET / endpoint", () => {
       const unknownOrigin = "http://localhost:1234";
 
       const response = await request(app)
-        .get("/")
+        .get(paths.root)
         .set("origin", unknownOrigin)
         .expect(badRequestCode);
 
