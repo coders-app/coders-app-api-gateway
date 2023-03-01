@@ -1,16 +1,16 @@
 import "../../../loadEnvironments.js";
-import debugCreator from "debug";
 import chalk from "chalk";
 import type { NextFunction, Request, Response } from "express";
 import CustomError from "../../../CustomError/CustomError.js";
 import httpStatusCodes from "../../../constants/httpStatusCodes.js";
+import debugConfig from "../../../utils/debugConfig.js";
 
 const {
   serverErrors: { internalServerErrorCode },
   clientErrors: { notFoundCode },
 } = httpStatusCodes;
 
-const debug = debugCreator("identify-server:middlewares:errors");
+const debug = debugConfig.extend("middlewares:errors");
 
 const generalError = (
   error: CustomError,
