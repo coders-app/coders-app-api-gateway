@@ -16,6 +16,12 @@ const proxyRoutes: ProxyRoutes = [
     target: services.identityServer,
     targetPath: paths.users.logout,
   },
+  {
+    path: paths.users.verifyToken,
+    method: "get",
+    target: services.identityServer,
+    targetPath: paths.users.verifyToken,
+  },
 ];
 
 export default proxyRoutes;
