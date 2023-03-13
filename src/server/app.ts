@@ -11,8 +11,11 @@ import { environment } from "../loadEnvironments.js";
 import { registerProxyRoutes } from "./middlewares/proxy/proxy.js";
 import proxyRoutes from "./routers/proxy/proxyRoutes.js";
 import { paths } from "./routers/paths.js";
+import setHeaderCredentials from "./middlewares/setHeaderCredentials/setHeaderCredentials.js";
 
 const app = express();
+
+app.use(setHeaderCredentials);
 
 app.use(cors(corsOptions));
 app.disable("x-powered-by");
