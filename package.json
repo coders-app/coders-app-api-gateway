@@ -18,6 +18,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/format": "^17.4.4",
     "@types/cors": "^2.8.13",
     "@types/debug": "^4.1.7",
     "@types/dotenv": "^8.2.0",
