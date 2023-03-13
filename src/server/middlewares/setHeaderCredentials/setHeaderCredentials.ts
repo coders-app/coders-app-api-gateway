@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import requestHeaders from "../../../constants/requestHeaders";
+import requestHeaders from "../../../constants/requestHeaders.js";
 
 const { allowCredentials } = requestHeaders;
 
